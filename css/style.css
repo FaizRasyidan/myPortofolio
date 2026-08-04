@@ -729,75 +729,114 @@ a:focus {
 .service {
     position: relative;
     width: 100%;
-    padding: 45px 0 15px 0;
+    padding: 60px 0 35px 0;
 }
 
 .service .service-item {
     position: relative;
     margin-bottom: 30px;
     display: flex;
-    align-items: center;
-    box-shadow: inset 0 0 0 0 transparent;
-    transition: ease-out 0.5s;
+    align-items: flex-start;
+    background: #ffffff;
+    border: 1px solid rgba(239, 35, 60, .14);
+    border-radius: 18px;
+    padding: 28px 30px;
+    transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+    overflow: hidden;
 }
 
 .service .service-item:hover {
-    box-shadow: inset 800px 0 0 0 #EF233C;
+    transform: translateY(-5px);
+    box-shadow: 0 24px 50px rgba(0, 0, 0, .08);
+    border-color: #EF233C;
 }
 
 .service .service-icon {
     position: relative;
-    width: 150px;
-    min-height: 150px;
+    width: 100px;
+    min-width: 100px;
+    height: 100px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid #EF233C;
+    border-radius: 50%;
+    border: 2px solid #EF233C;
     background: #ffffff;
+    color: #EF233C;
+    flex-shrink: 0;
 }
 
 .service .service-icon i {
-    position: relative;
-    font-size: 60px;
-    color: #EF233C;
-    transition: .3s;
+    font-size: 32px;
+    transition: transform .3s ease, color .3s ease;
 }
 
-.service .service-item:hover i {
-    font-size: 75px;
+.service .service-item:hover .service-icon {
+    background: #EF233C;
+    color: #ffffff;
+}
+
+.service .service-item:hover .service-icon i {
+    transform: scale(1.05);
+    color: #ffffff;
 }
 
 .service .service-text {
     position: relative;
-    width: calc(100% - 120px);
-    padding: 0 30px;
+    flex: 1;
+    padding-left: 25px;
 }
 
 .service .service-text h3 {
     margin-bottom: 10px;
-    font-size: 20px;
-    font-weight: 600;
-    transition: 1s;
+    font-size: 22px;
+    font-weight: 700;
+    color: #313131;
 }
 
-.service .service-text p {
+.service .service-text h4 {
+    margin-bottom: 16px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #777777;
+}
+
+.service .service-text .service-list {
     margin: 0;
-    font-size: 16px;
-    transition: 1s;
+    padding-left: 20px;
+    list-style: disc;
+    color: #555555;
 }
 
-.service .service-item:hover .service-text h3,
-.service .service-item:hover .service-text p {
-    color: #ffffff;
+.service .service-text .service-list li {
+    margin-bottom: 10px;
+    line-height: 1.75;
+}
+
+@media (max-width: 767.98px) {
+    .service .service-item {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 24px;
+    }
+
+    .service .service-icon {
+        width: 85px;
+        height: 85px;
+        margin-bottom: 18px;
+    }
+
+    .service .service-text {
+        padding-left: 0;
+    }
 }
 
 @media (max-width: 575.98px) {
     .service .service-text h3 {
-        font-size: 16px;
-        margin-bottom: 5px;
+        font-size: 18px;
     }
     
-    .service .service-text p {
+    .service .service-text h4 {
         font-size: 14px;
     }
 }
@@ -847,69 +886,57 @@ a:focus {
 
 .portfolio .portfolio-item {
     position: relative;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
 }
 
 .portfolio .portfolio-wrap {
     position: relative;
     width: 100%;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, .08);
+    background: #ffffff;
+    transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.portfolio .portfolio-item:hover .portfolio-wrap {
+    transform: translateY(-6px);
+    box-shadow: 0 26px 55px rgba(0, 0, 0, .12);
 }
 
 .portfolio .portfolio-img {
     position: relative;
     overflow: hidden;
-    border-radius: 15px;
+    border-radius: 20px;
+    aspect-ratio: 4 / 3;
+    min-height: 240px;
+    background: #f5f5f5;
 }
 
 .portfolio .portfolio-img img {
-    position: relative;
-    width: 100%; 
-    height: 100%; 
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-    transform: scale(1.1);
-    transition: .5s;
+    transform: scale(1);
+    transition: transform .5s ease;
 }
 
 .portfolio .portfolio-item:hover img {
-    margin-left: 15px;
+    transform: scale(1.08);
 }
 
-.portfolio .portfolio-text {
-    position: relative;
-    height: 60px;
-    width: calc(100% - 30px);
-    margin: -30px 15px 30px 15px;
-    display: flex;
-    align-items: center;
-    background: #ffffff;
-    box-shadow: 0 0 15px rgba(0, 0, 0, .12);
+.portfolio .portfolio-text,
+.portfolio .portfolio-item a.btn {
+    display: none;
 }
 
-.portfolio .portfolio-text h3 {
-    width: calc(100% - 70px);
-    font-size: 18px;
-    font-weight: 600;
-    margin: 0 0 0 15px;
-    white-space: nowrap;
-    overflow: hidden;
-}
-
-.portfolio .portfolio-text a.btn {
-    width: 50px;
-    height: 50px;
-    padding: 0 0 2px 1px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 45px;
-    font-weight: 100;
-}
-
-.portfolio .portfolio-item:hover a.btn {
-    color: #EF233C;
-    background: transparent;
-    box-shadow: inset 0 0 0 0 #EF233C;
-    border-color: #EF233C;
+@media (max-width: 767.98px) {
+    .portfolio .portfolio-img {
+        aspect-ratio: 1 / 1;
+        min-height: 220px;
+    }
 }
 
 
@@ -919,23 +946,50 @@ a:focus {
 .banner {
     position: relative;
     width: 100%;
-    margin: 45px 0;
-    padding: 90px 0;
-    background: #EF233C;
+    margin: 55px 0;
+    padding: 70px 0;
+    background: linear-gradient(135deg, #EF233C 0%, #D90429 100%);
+    overflow: hidden;
+}
+
+.banner::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 560px;
+    height: 560px;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 50%;
+    filter: blur(30px);
+    z-index: 0;
 }
 
 .banner .container {
-    max-width: 750px;
-    text-align: center;
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+}
+
+.banner-box {
+    padding: 35px 30px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 24px;
+    box-shadow: 0 30px 70px rgba(0, 0, 0, .10);
 }
 
 .banner .section-header {
-    margin-bottom: 20px;
+    margin-bottom: 28px;
 }
 
 .banner .section-header p {
-    color: #414141;
-    background: transparent;
+    margin-bottom: 12px;
+    color: rgba(19, 1, 1, 0.85);
+    font-size: 16px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
 }
 
 .banner .section-header p::after {
@@ -944,30 +998,78 @@ a:focus {
 
 .banner .section-header h1 {
     color: #ffffff;
+    font-size: 34px;
+    line-height: 1.2;
+    font-weight: 700;
 }
 
-.banner .section-header h4 {
-    color: #ffffff;
+.banner .banner-text ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
 
 .banner .banner-text ul li {
+    position: relative;
+    margin-bottom: 16px;
+    padding-left: 24px;
+    color: rgba(255, 255, 255, 0.92);
     font-size: 15px;
-    color: #ffffff;
+    line-height: 1.8;
 }
 
-.banner .banner-text .btn {
-    margin-top: 15px;
+.banner .banner-text ul li::before {
+    content: "\2022";
+    position: absolute;
+    left: 0;
+    top: 6px;
+    color: #ffffff;
+    font-size: 18px;
+    line-height: 1;
+}
+
+.banner .banner-action {
+    margin-top: 22px;
+}
+
+.banner .banner-action .btn {
+    padding: 14px 32px;
     color: #EF233C;
     background: #ffffff;
+    border: 2px solid transparent;
     box-shadow: inset 0 0 0 50px #ffffff;
+    transition: ease-out .3s;
 }
 
-.banner .banner-text .btn:hover {
+.banner .banner-action .btn:hover {
     color: #ffffff;
     background: transparent;
     box-shadow: inset 0 0 0 0 #ffffff;
     border-color: #ffffff;
 }
+
+@media (max-width: 767.98px) {
+    .banner {
+        padding: 55px 0;
+    }
+
+    .banner-box {
+        padding: 28px 20px;
+    }
+
+    .banner .section-header h1 {
+        font-size: 28px;
+    }
+
+    .banner .banner-text ul li {
+        font-size: 14px;
+    }
+
+    .banner .banner-action .btn {
+        width: 100%;
+    }
+}
+
 
 /*******************************/
 /********* Contact CSS *********/
